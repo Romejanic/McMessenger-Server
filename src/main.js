@@ -1,11 +1,10 @@
-const net = require("net");
+const http = require("http");
 
-const server = net.createServer((socket) => {
-    socket.on("data", (data) => {
-        console.log(data.toString());
-    });
+const server = http.createServer((req, res) => {
+    res.write("<h1>Testing</h1>");
+    res.end();
 });
 
-server.listen(8080, () => {
-    console.log("Server opened on *:8080");
+server.listen(80, () => {
+    console.log("Server started");
 });
