@@ -1,0 +1,13 @@
+{
+    "name": "mcmessenger-server",
+    "version": "0.0.1",
+    "author": {
+        "name": "Jack Davenport"
+    },
+    "scripts": {
+        "start": "node src/main.js"
+    },
+    "dependencies": {
+        
+    }
+}
