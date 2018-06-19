@@ -7,7 +7,5 @@
     "scripts": {
         "start": "node src/main.js"
     },
-    "dependencies": {
-        
-    }
+    "dependencies": {}
 }
