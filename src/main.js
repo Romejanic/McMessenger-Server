@@ -1,9 +1,11 @@
-const http = require("http");
+const net  = require("net");
 const port = process.env.PORT || 8080;
 
-const server = http.createServer((req, res) => {
-    res.write("<h1>Testing</h1>");
-    res.end();
+const server = net.createServer((socket) => {
+    socket.on("data", (data) => {
+        console.log("[data]", data.toString());
+    });
+    socket.write("Hello from Heroku!");
 });
 
 server.listen(port, () => {
