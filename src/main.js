@@ -6,6 +6,7 @@ const server = http.createServer((req, res) => {
     res.end();
 });
 
+console.log(process.env.DATABASE_URL);
 server.listen(port, () => {
     console.log("Server started on localhost:", port);
 });
