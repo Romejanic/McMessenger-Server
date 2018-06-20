@@ -1,12 +1,12 @@
-const http = require("http");
+const express = require("express");
+const http    = require("http");
+
+const app = express();
+const server = http.createServer(app);
+
+app.use(express.static("../www"));
+
 const port = process.env.PORT || 8080;
-
-const server = http.createServer((req, res) => {
-    res.write("<h1>Hello world!</h1><p>" + req.url + "</p>");
-    res.end();
-});
-
-console.log(process.env.DATABASE_URL);
 server.listen(port, () => {
     console.log("Server started on localhost:", port);
 });
