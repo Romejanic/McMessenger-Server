@@ -16,17 +16,12 @@ async function init() {
     console.log("Attempting to connect to database...");
     await client.connect();
     console.log("Connection established!");
-    
-    let res = await client.query("SELECT * FROM test");
-    res.rows.forEach((val) => {
-        console.log(val);
-    });
 }
 
 // load developer config from file (if it exists)
 function loadDevConfig() {
-    if(fs.existsSync("../dev_config.json")) {
-        let json = fs.readFileSync("../dev_config.json");
+    if(fs.existsSync("dev_config.json")) {
+        let json = fs.readFileSync("dev_config.json");
         return JSON.parse(json);
     }
     return {};

@@ -1,0 +1,33 @@
+tables:
+
+	users
+	messages
+	/* friendships */
+	message_threads
+
+users:
+	id (primary key, unique)
+	uuid (text) // mojang uuid
+	status_code (int)
+	status_data (text)
+	show_hat (bool)
+
+messages:
+	id (primary key, unique) ?
+	content (long text) // encrypted text
+	sender (foreign key -> users)
+	thread (foreign key -> message_threads)
+
+// might not be needed
+/*
+friendships:
+	user_a (foreign key -> users)
+	user_b (foreign key -> users)
+*/
+
+message_threads:
+	//friendship (foreign key -> friendships)
+	user_a (foreign key -> users)
+	user_b (foreign key -> users)
+	
+	
