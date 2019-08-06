@@ -1,7 +1,7 @@
 const { Client } = require("pg");
 const devConfig = require("../dev_config.json");
 
-let connectionString = process.env.DATABASE_URL | devConfig.database_url;
+let connectionString = process.env.DATABASE_URL || devConfig.database_url;
 
 let client = new Client({
     connectionString: connectionString,
