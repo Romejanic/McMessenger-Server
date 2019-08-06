@@ -1,7 +1,7 @@
 const { Client } = require("./client");
 
 function processPacket(client, packet, socket) {
-
+    console.log(packet);
 }
 
 module.exports = (wss) => {
@@ -13,8 +13,9 @@ module.exports = (wss) => {
             let packet = JSON.parse(data.toString());
             if(!client.authenticated) {
                 if(packet.id === "authenticate") {
-                     // packet.payload is the mojang access token
-                    client.authenticate(packet.payload);
+                    client.authenticate(packet.payload).then((packet) => {
+                        socket.sendPacketObj(packet);
+                    });
                 } else {
                     client.sendPacket("request_auth");
                 }
